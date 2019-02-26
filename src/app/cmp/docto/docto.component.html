@@ -1,0 +1,30 @@
+<td>{{docto.docu_Tipo}}</td>
+<td>{{docto.docu_Tutor}}</td>
+<td> <span class="badge badge-warning">{{docto.docu_Estatus}}</span></td>
+<td *ngIf="!perfilTutor">
+    <button [hidden]="hideValidacion" (click)="ValidateDocumento(docto)" name="btnValidar" mat-raised-button type="submit" class="btn btn-primary pull-right">Validar</button>
+    <button [hidden]="hideDeclina" (click)="DeclineDocumento(docto)" mat-raised-button type="submit" class="btn btn-dark pull-right">Declinar</button>
+</td>
+<td *ngIf="perfilTutor">
+    <button (click)="DeleteDocumento(docto)" mat-raised-button type="submit" class="btn btn-dark pull-right material-icons">
+        <i class="material-icons">delete</i>
+        Eliminar
+    </button>
+</td>
+<div class="row" [hidden]="hideObservaciones">
+    <div class="col-md-10">
+      <label>Observaciones</label>
+      <mat-form-field class="example-full-width">
+         <textarea matInput placeholder="Indica con claridad la razón por la cual estás declinando este documento." required></textarea>
+       </mat-form-field>
+    </div>
+    <div class="col-md-2">
+        <button (click)="AddObservacion(docto)" mat-raised-button type="submit" class="btn btn-dark pull-right">Guardar</button>
+
+
+      </div>
+</div>
+
+
+
+<!--{{ nombreDocto }}-->

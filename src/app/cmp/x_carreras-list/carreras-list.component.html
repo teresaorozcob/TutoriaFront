@@ -1,0 +1,12 @@
+<div class="col-md-8">
+
+    <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Nombre de {{grado}}" aria-label="Assignee" matInput [matAutocomplete]="auto">
+        <!--[displayWith]="displayFn"-->
+        <mat-autocomplete #auto="matAutocomplete" >
+          <mat-option *ngFor="let carrera of carreras" [value]="carrera.nombre" (itemSelected)="carrera.nombre">
+            {{carrera.nombre}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+</div>

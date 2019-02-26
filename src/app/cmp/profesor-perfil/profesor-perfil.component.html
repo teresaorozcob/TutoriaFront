@@ -1,0 +1,98 @@
+[<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Profesor</h4>
+                      <p class="card-category">Completa tu perfil</p>
+                  </div>
+                  <div class="card-body">
+                      <form>
+                          <div class="row">
+                              <div class="col-md-2">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="No. Empleado" name= "idProfesor" [(ngModel)]="profesor.idProfesor" #inputIdProfesor>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Correo Institucional" name="correoI" [(ngModel)]="profesor.correoInstitucional" #inputCorreoI type="email">
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-5">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Correo Personal" name="correoP" [(ngModel)]="profesor.correoPersonal" type="email">
+                                </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Nombre" type="text" name="nombre" [(ngModel)]="profesor.nombre" #inputNombre>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input name="apellido1" [(ngModel)]="profesor.apellido1" matInput placeholder="1erApellido" type="text">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input name="apellido2" [(ngModel)]="profesor.apellido2" matInput placeholder="2do Apellido" type="text">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <mat-form-field>
+                                <input [(ngModel)]="profesor.fechaNac" matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento" name="fechaNac" >
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-8">
+                              <mat-form-field >
+                                <mat-select placeholder="Puesto en la institución" [(ngModel)]="profesor.puestoInstituto" name="puestoInstituto">
+                                  <mat-option *ngFor="let puesto of puestos" [(value)]="puesto.puesto" >
+                                    {{puesto.puesto}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+
+                            </div>
+                        </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="City" type="text">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Country" type="text">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Postal Code" type="text">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-12">
+                                <label>About Me</label>
+                                <mat-form-field class="example-full-width">
+                                   <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
+                                 </mat-form-field>
+                              </div>
+                          </div>
+                          <button (click)="SaveDatosProfesor(profesor)" mat-raised-button type="submit" class="btn btn-danger pull-right">Guardar</button>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

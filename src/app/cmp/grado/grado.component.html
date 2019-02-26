@@ -1,0 +1,76 @@
+<div class="card card-chart">
+  <div class="card-header card-header-success">
+      <div class="ct-chart" id="dailySalesChart"></div>
+  </div>
+  <div class="card-body">
+      <h4 class="card-title">
+        <span class="text-success" >
+            {{grado.tipo}}
+        </span>
+        en
+        <strong>
+            {{grado.nombre}}
+        </strong>
+    </h4>
+      <p class="card-category">
+            <span class="text-success">
+                <i class="material-icons">domain</i>
+            </span>
+            en
+          <span class="text-success">
+              {{grado.escuela}}
+            </span>
+        </p>
+        <p class="card-category">
+            <span class="text-success">
+                <i class="material-icons">date_range</i>
+            </span>
+            del
+            <span class="text-success">
+                {{grado.periodoIni}}
+            </span>
+            al
+            <span class="text-success">
+                    {{grado.periodoFin}}
+            </span>
+        </p>
+        <p class="card-category">
+            <span class="text-success">
+                <i class="material-icons">school</i>
+            </span>
+            titulado en
+            <span class="text-success">
+            {{grado.fechaTitulo}}
+            </span>
+        </p>
+  </div>
+
+  <div class="card-body">
+        <button class="btn btn-warning" mat-raised-button (click)="addDocumento(grado)" >
+        <i class="material-icons">add_circle</i>
+        Agregar Documentos
+      </button>
+
+<!--    <span class="text-success">
+        <i class="material-icons">library_books</i>
+        <a class="text-success"><strong>DOCUMENTOS</strong></a>
+    </span>
+-->
+  </div>
+  <div class="card-body">
+<!--mat-raised-button-->
+    <button class="btn btn-warning"
+     (click)="openDocumentos()" >
+    <i class="material-icons">library_books</i>
+    Ver Documentos
+  </button>
+</div>
+
+  <div class="card-body">
+    <app-editar [grado]="grado" (editado)="vieneEditado($event)"></app-editar>
+
+
+</div>
+
+
+</div>

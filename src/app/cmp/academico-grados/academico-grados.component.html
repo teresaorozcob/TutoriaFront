@@ -1,0 +1,11 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-4" *ngFor="let grado of grados; let i = index">
+          <app-grado [grado]="grado" (editado)="vieneEditado($event)"></app-grado>
+          </div>
+      </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,97 @@
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="col-md-12">
+        <h1 mat-dialog-title>Nuevo Grado</h1>
+
+      <div class="row">
+          <div class="col-md-4">
+            <mat-form-field >
+              <mat-select placeholder="Selecciona grado"  [(ngModel)]="grado.tipo">
+                <mat-option value="Licenciatura">Licenciatura</mat-option>
+                <mat-option value="Maestría">Maestría</mat-option>
+                <mat-option value="Doctorado">Doctorado</mat-option>
+                <mat-option value="Especialidad">Especialidad</mat-option>
+                <mat-option value="Diplomado">Diplomado</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-8">
+              <mat-form-field class="example-full-width" >
+                <input type="text" placeholder="Nombre de {{grado}}" aria-label="Assignee" matInput [matAutocomplete]="auto"
+                [(ngModel)]="grado.nombre">
+                <mat-autocomplete #auto="matAutocomplete" >
+                  <mat-option *ngFor="let carrera of carreras" [value]="carrera.nombre">
+                    {{carrera.nombre}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <mat-form-field class="example-form-field">
+                <input matInput type="text" placeholder="Institución" [(ngModel)]="grado.escuela">
+                <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+
+            <mat-form-field class="example-form-field">
+              <input matInput type="number" placeholder="Periodo Inicial (año)" [(ngModel)]="grado.periodoIni">
+              <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+
+          <mat-form-field class="example-form-field">
+            <input matInput type="number" placeholder="Periodo Final (año)" [(ngModel)]="grado.periodoFin">
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+      </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-3">
+<br>
+          <mat-checkbox [formControl]="disableSelect" [(ngModel)]="grado.titulo">Estás titulado?</mat-checkbox>
+
+        </div>
+        <div class="col-md-3">
+            <mat-form-field  class="example-form-field">
+                <input [disabled]="!disableSelect.value" matInput type="number" placeholder="Año de titulación" [(ngModel)]="grado.fechaTitulo">
+                <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<br><br><br>
+
+
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+
+
+  <!--[mat-dialog-close]="data.animal"-->
+  <button (click)="SaveGradoAcademico(grado)" mat-button [mat-dialog-close]="value" cdkFocusInitial>Ok</button>
+</div>
